@@ -1,0 +1,33 @@
+﻿{
+  "manifest_version": 3,
+  "name": "Aside",
+  "version": "0.1.0",
+  "description": "AI对话树状管理",
+  "permissions": ["tabs", "activeTab", "scripting", "contextMenus", "storage", "sidePanel"],
+  "host_permissions": [
+    "https://chat.openai.com/*",
+    "https://chatgpt.com/*",
+    "https://claude.ai/*",
+    "https://gemini.google.com/*",
+    "https://tongyi.aliyun.com/*"
+  ],
+  "background": {
+    "service_worker": "background/index.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    { "matches": ["https://chat.openai.com/*", "https://chatgpt.com/*"], "js": ["content/chatgpt.js"], "run_at": "document_idle" },
+    { "matches": ["https://claude.ai/*"], "js": ["content/claude.js"], "run_at": "document_idle" },
+    { "matches": ["https://gemini.google.com/*"], "js": ["content/gemini.js"], "run_at": "document_idle" },
+    { "matches": ["https://tongyi.aliyun.com/*"], "js": ["content/tongyi.js"], "run_at": "document_idle" }
+  ],
+  "side_panel": { "default_path": "sidepanel/sidepanel.html" },
+  "action": {
+    "default_title": "Aside",
+    "default_icon": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+  },
+  "icons": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "web_accessible_resources": [
+    { "resources": ["assets/*", "chunks/*"], "matches": ["<all_urls>"] }
+  ]
+}
