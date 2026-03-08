@@ -8,6 +8,9 @@ PROGRESS.md
 node_modules/
 dist/
 
+# Ignore aside-plugin node_modules
+aside-plugin/node_modules/
+
 # Ignore IDE files
 .vscode/
 .idea/
