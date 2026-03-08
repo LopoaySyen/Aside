@@ -1,0 +1,17 @@
+# Ignore specified files
+aside-architecture-v2.html
+aside-extension-skeleton (1).zip
+package-lock.json
+PROGRESS.md
+
+# Ignore common node.js files
+node_modules/
+dist/
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
